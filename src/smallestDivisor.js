@@ -1,6 +1,6 @@
-const smallestDivisor = (num) => {
-  if (num === 0) {
-    return 0;
+export const smallestDivisorRecursive = (num) => {
+  if (num < 1) {
+    return NaN;
   }
   if (num === 1) {
     return 1;
@@ -17,4 +17,20 @@ const smallestDivisor = (num) => {
   return iter(2);
 };
 
-export default smallestDivisor;
+export const smallestDivisorIterative = (num) => {
+  if (num < 1) {
+    return NaN;
+  }
+  if (num === 1) {
+    return 1;
+  }
+
+  let counter = 2;
+
+  while (counter <= num && num % counter !== 0) {
+    counter += 1;
+  }
+
+  return counter;
+};
+

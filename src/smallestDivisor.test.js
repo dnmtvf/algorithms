@@ -1,11 +1,27 @@
-import smallestDivisor from './smallestDivisor';
+import { smallestDivisorRecursive, smallestDivisorIterative } from './smallestDivisor';
 
-test('Should return smallest divisor', () => {
-  expect(smallestDivisor(15)).toBe(3);
-  expect(smallestDivisor(2)).toBe(2);
+describe('Recursive vesrsion', () => {
+  test('Should return smallest divisor', () => {
+    expect(smallestDivisorRecursive(15)).toBe(3);
+    expect(smallestDivisorRecursive(2)).toBe(2);
+  });
+
+  test('Corner cases', () => {
+    expect(smallestDivisorRecursive(0)).toEqual(NaN);
+    expect(smallestDivisorRecursive(1)).toBe(1);
+    expect(smallestDivisorRecursive(-5)).toEqual(NaN);
+  });
 });
 
-test('Corner cases', () => {
-  expect(smallestDivisor(0)).toBe(0);
-  expect(smallestDivisor(1)).toBe(1);
+describe('Iterative vesrsion', () => {
+  test('Should return smallest divisor', () => {
+    expect(smallestDivisorIterative(15)).toBe(3);
+    expect(smallestDivisorIterative(2)).toBe(2);
+  });
+
+  test('Corner cases', () => {
+    expect(smallestDivisorIterative(0)).toEqual(NaN);
+    expect(smallestDivisorIterative(1)).toBe(1);
+    expect(smallestDivisorRecursive(-5)).toEqual(NaN);
+  });
 });
